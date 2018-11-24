@@ -6,7 +6,7 @@ pipeline {
             steps {
                 echo 'Building docker'
                 sh 'whoami'
-                sh 'docker-compose up'
+                sh 'docker-compose up -d'
             }
             post {
                 always {
