@@ -1,6 +1,5 @@
 package tests.steps;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -208,7 +207,7 @@ public class ShoppingStepdefs {
         WebElement orderID = driver.findElement(By.xpath("//div[@id='center_column']/div"));
         System.out.println(orderID.getText());
         String orderIDText = orderID.getText();
-        ;
+
         // Go to my orders
 
         WebElement myOrder = driver.findElement(By.xpath("//*[@id=\"footer\"]/div/section[5]/div/ul/li[1]/a"));
@@ -253,9 +252,8 @@ public class ShoppingStepdefs {
     }
 
     @Then("^I check \"([^\"]*)\"$")
-    public void iCheck(String arg0) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    public void iCheck(String arg0)  {
+
     }
 
     @And("^click in \"([^\"]*)\" button$")
