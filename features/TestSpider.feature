@@ -9,7 +9,7 @@ Feature: Navigate in spider-ump
     Then I am in the "main" page
     #And click in "<string>" layer
 
-  Scenario Outline: Moving towards different layers
+  Scenario: Moving towards different layers
     When click in "<string>" button
 
 
