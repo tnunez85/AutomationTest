@@ -1,5 +1,6 @@
 package tests.steps;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -252,8 +253,9 @@ public class ShoppingStepdefs {
     }
 
     @Then("^I check \"([^\"]*)\"$")
-    public void iCheck(String arg0)  {
-
+    public void iCheck(String arg0) throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
     }
 
     @And("^click in \"([^\"]*)\" button$")

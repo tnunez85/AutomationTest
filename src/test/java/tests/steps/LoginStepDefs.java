@@ -10,11 +10,10 @@ import org.openqa.selenium.WebElement;
 import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
 import static tests.Hooks.driver;
 import static tests.Hooks.wait;
-
 public class LoginStepDefs {
 
     @Given("^I click in \"([^\"]*)\" button$")
-    public void iClickInButton(String arg0) {
+    public void kInButton(String arg0) {
         // The user click in log in button
         WebElement botonLogin = driver.findElement(By.className("login"));
         wait.until(elementToBeClickable(botonLogin)).click();

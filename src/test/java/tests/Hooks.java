@@ -33,7 +33,7 @@ public class Hooks {
             driver = new ChromeDriver(chromeOptions);
             wait = new WebDriverWait(driver, 25, 200);
         }
-        if (navegador.equals("firefox")) {
+        if (navegador.equals("gecko")) {
             String opeSystem = System.getProperty("user.dir") + WINDOWS_FIREFOX_DRIVER;
             System.setProperty("webdriver.gecko.driver", opeSystem);
             FirefoxOptions firefoxOptions = new FirefoxOptions();

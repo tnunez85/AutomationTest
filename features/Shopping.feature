@@ -1,4 +1,4 @@
-
+@test
 Feature: Go shopping within the website!!
 
   Background: Login into the website
