@@ -33,6 +33,7 @@ pipeline {
         stage('Bye Bye!') {
             steps {
                 sh 'docker-compose down'
+                echo 'bye-bye docker!!'
             }
 
         }
