@@ -1,30 +1,55 @@
 package tests;
 
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.net.URL;
 
-class RemoteTest {
 
+public class RemoteTest {
+    public static WebDriver driver;
+    public static WebDriverWait wait;
 
+    @Before
 
-    public static void main(String[] args) throws Exception {
-        // Change this to match the location of your server
-        URL server = new URL("http://172.20.0.2:4444/wd/hub");
+    public void chromeTesting() throws Exception {
+        DesiredCapabilities chromeCaps = new DesiredCapabilities();
+        chromeCaps.setCapability("platform", "LINUX");
+        chromeCaps.setCapability("version", "");
+        chromeCaps.setCapability("browserName", "chrome");
 
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setBrowserName("firefox");
+        driver = new RemoteWebDriver(new URL("http://192.168.50.5:4444/wd/hub"), chromeCaps);
+        wait = new WebDriverWait(driver, 30, 1000);
 
-        System.out.println("Connecting to " + server);
+        System.out.println("This will run before your Chrome Test");
+    }
 
-        WebDriver driver = new RemoteWebDriver(server, capabilities);
+    @Before
+    public void firefoxTesting() throws Exception {
+        DesiredCapabilities firefoxCaps = new DesiredCapabilities();
+        firefoxCaps.setCapability("platform", "LINUX");
+        firefoxCaps.setCapability("version", "");
+        firefoxCaps.setCapability("browserName", "firefox");
+        firefoxCaps.setCapability("marionette", true);
 
-        driver.get("http://www.google.com");
+        driver = new RemoteWebDriver(new URL("http://192.168.50.5:4444/wd/hub"), firefoxCaps);
+        wait = new WebDriverWait(driver, 50, 5000);
 
-        driver.quit();
+        System.out.println("This will run before your Firefox Test");
     }
 
 
+    @After
+    public void deleteCookiesAndDestroy() {
+        if (driver != null) {
+            driver.manage().deleteAllCookies();
+            driver.quit();
+            driver = null;
+        }
+        System.out.println("This will run after your Test");
+    }
 }

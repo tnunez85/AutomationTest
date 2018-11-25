@@ -2,7 +2,7 @@
 Feature: Go shopping within the website!!
 
   Background: Login into the website
-    Given I'm "logged" into the website
+    Given I'm logged into the "website"
 
   Scenario: I'm searching for cheapest dress
     And Enter "dress" into search box

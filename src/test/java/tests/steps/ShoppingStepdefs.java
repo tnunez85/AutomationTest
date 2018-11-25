@@ -12,13 +12,13 @@ import org.openqa.selenium.support.ui.Select;
 import java.util.List;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
-import static tests.Hooks.driver;
-import static tests.Hooks.wait;
+import static tests.RemoteTest.driver;
+import static tests.RemoteTest.wait;
 
 
 public class ShoppingStepdefs {
-    @Given("^I'm \"([^\"]*)\" into the website$")
-    public void iMIntoTheWebsite(String arg2) {
+    @Given("^I'm logged into the \"([^\"]*)\"$")
+    public void iMLoggedIntoThe(String arg0) {
         // The user navigate to website
         driver.navigate().to("http://automationpractice.com/index.php");
 
@@ -259,20 +259,20 @@ public class ShoppingStepdefs {
     }
 
     @And("^click in \"([^\"]*)\" button$")
-    public void clickInButton(String arg0)  {
+    public void clickInButton(String arg0) {
         WebElement contactButton = driver.findElement(By.id("contact-link"));
         wait.until(elementToBeClickable(contactButton)).click();
     }
 
     @When("^I fulfill every needed \"([^\"]*)\" for send a message$")
-    public void iFulfillEveryNeededForSendAMessage(String arg0)  {
+    public void iFulfillEveryNeededForSendAMessage(String arg0) {
         Select contactTO = new Select(driver.findElement(By.id("id_contact")));
         contactTO.selectByVisibleText("Webmaster");
 
-        WebElement messageBody=driver.findElement(By.id("message"));
+        WebElement messageBody = driver.findElement(By.id("message"));
         wait.until(elementToBeClickable(messageBody)).sendKeys("This is a text");
 
-        WebElement sendMessage=driver.findElement(By.xpath("//*[@id=\"submitMessage\"]/span"));
+        WebElement sendMessage = driver.findElement(By.xpath("//*[@id=\"submitMessage\"]/span"));
         wait.until(elementToBeClickable(sendMessage)).click();
 
         try {
@@ -284,9 +284,12 @@ public class ShoppingStepdefs {
     }
 
     @Then("^\"([^\"]*)\" the message$")
-    public void theMessage(String arg0)  {
+    public void theMessage(String arg0) {
 
         WebElement contactButton = driver.findElement(By.id("contact-link"));
         wait.until(elementToBeClickable(contactButton)).click();
     }
+
+
 }
+

@@ -8,8 +8,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
-import static tests.Hooks.driver;
-import static tests.Hooks.wait;
+import static tests.RemoteTest.driver;
+import static tests.RemoteTest.wait;
 public class LoginStepDefs {
 
     @Given("^I click in \"([^\"]*)\" button$")
