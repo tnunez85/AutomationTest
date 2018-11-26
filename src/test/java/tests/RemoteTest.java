@@ -25,7 +25,7 @@ public class RemoteTest {
         driver = new RemoteWebDriver(new URL("http://192.168.50.5:4444/wd/hub"), chromeCaps);
         wait = new WebDriverWait(driver, 30, 1000);
 
-        System.out.println("This will run before your Chrome Test");
+        System.out.println("Your Chrome test is being loaded...");
     }
 
     @Before
@@ -39,7 +39,7 @@ public class RemoteTest {
         driver = new RemoteWebDriver(new URL("http://192.168.50.5:4444/wd/hub"), firefoxCaps);
         wait = new WebDriverWait(driver, 50, 5000);
 
-        System.out.println("This will run before your Firefox Test");
+        System.out.println("Your Firefox test is being loaded...");
     }
 
 
@@ -50,6 +50,6 @@ public class RemoteTest {
             driver.quit();
             driver = null;
         }
-        System.out.println("This will run after your Test");
+        System.out.println("This will run after each Test");
     }
 }

@@ -7,18 +7,11 @@ pipeline {
                 echo 'Building docker'
                 sh 'whoami'
                 sh 'docker-compose up -d'
-                sh 'docker run -d --name selenium-hub selenium/hub'
-                sh 'docker run -d --link selenium-hub:hub selenium/node-chrome-debug'
-                sh 'docker run -d --link selenium-hub:hub selenium/node-firefox-debug'
             }
             post {
-                always {
-                    echo 'Docker images were loaded'
-                }
                 failure {
-                    echo 'Something weird happened. Need to review.'
+                    echo 'Something weird happened with Docker. Need to review.'
                 }
-
             }
         }
         stage('Test') {
