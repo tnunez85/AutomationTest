@@ -4,7 +4,7 @@ Feature: Go shopping within the website!!
   Background: Login into the website
     Given I'm logged into the "website"
 
-  Scenario: I'm searching for cheapest dress
+  Scenario: I'm searching for the cheapest dress
     And Enter "dress" into search box
     And I'm clicking "search" button
     Then I sort the output list by "Price: Lowest first" dress
