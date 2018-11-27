@@ -28,19 +28,19 @@ public class RemoteTest {
         System.out.println("Your Chrome test is being loaded...");
     }
 
-    @Before
-    public void firefoxTesting() throws Exception {
-        DesiredCapabilities firefoxCaps = new DesiredCapabilities();
-        firefoxCaps.setCapability("platform", "LINUX");
-        firefoxCaps.setCapability("version", "");
-        firefoxCaps.setCapability("browserName", "firefox");
-        firefoxCaps.setCapability("marionette", true);
+ // @Before
+ // public void firefoxTesting() throws Exception {
+ //     DesiredCapabilities firefoxCaps = new DesiredCapabilities();
+ //     firefoxCaps.setCapability("platform", "LINUX");
+ //     firefoxCaps.setCapability("version", "");
+ //     firefoxCaps.setCapability("browserName", "firefox");
+ //     firefoxCaps.setCapability("marionette", true);
 
-        driver = new RemoteWebDriver(new URL("http://192.168.50.5:4444/wd/hub"), firefoxCaps);
-        wait = new WebDriverWait(driver, 50, 5000);
+ //     driver = new RemoteWebDriver(new URL("http://192.168.50.5:4444/wd/hub"), firefoxCaps);
+ //     wait = new WebDriverWait(driver, 50, 5000);
 
-        System.out.println("Your Firefox test is being loaded...");
-    }
+ //     System.out.println("Your Firefox test is being loaded...");
+ // }
 
 
     @After
