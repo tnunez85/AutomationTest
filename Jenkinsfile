@@ -6,8 +6,10 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building docker'
+                echo 'Cloning git repertory and building docker services'
                 sh 'whoami'
+                sh "rm -rf AutomationTest"
+                sh 'git clone https://github.com/tnunez85/AutomationTest.git'
                 sh 'docker-compose up -d'
             }
             post {
@@ -19,7 +21,8 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Test is being submitted'
-                sh 'docker ps -a'
+                sh 'cd AutomationTest'
+                sh 'mvn test'
                             }
             post{
                 failure{
