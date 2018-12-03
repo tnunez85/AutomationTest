@@ -20,9 +20,9 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Test is being submitted'
+                echo 'Smoke test will be submitted'
                 sh 'cd AutomationTest'
-                sh 'mvn test -Dcucumber.options="--tags @shopping"'
+                sh 'mvn test -Dcucumber.options="--tags @smoke"'
                             }
             post{
                 failure{
