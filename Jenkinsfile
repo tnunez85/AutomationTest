@@ -22,7 +22,7 @@ pipeline {
             steps {
                 echo 'Test is being submitted'
                 sh 'cd AutomationTest'
-                sh 'mvn test'
+                sh 'mvn test -Dcucumber.options="--tags @shopping"'
                             }
             post{
                 failure{

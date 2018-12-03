@@ -1,3 +1,4 @@
+@logout
 Feature: Logout from website
 
   Scenario: The user logout from website

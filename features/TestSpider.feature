@@ -1,4 +1,4 @@
-
+@spider
 Feature: Navigate in spider-ump
 
 
